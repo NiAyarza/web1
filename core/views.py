@@ -5,7 +5,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from .forms import ProductoForm, CustomUserForm 
 from django.contrib.auth import login, authenticate
-from django.contrib import messages
+
+from rest_framework import viewsets, status
+from .serializers import ProductoSerializer 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.parsers import JSONParser 
+from django.views.decorators.csrf import csrf_exempt
+from core.models import Producto 
 
 # Create your views here.
 
@@ -86,3 +93,8 @@ def registro(request):
         data["form"] = formulario
 
     return render(request, "registration/registrar.html", data)
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
