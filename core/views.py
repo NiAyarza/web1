@@ -30,7 +30,7 @@ def Lista_Producto(request):
     }
     return render(request, 'core/Lista_Producto.html', data)
 
-@login_required
+@login_required 
 def aniadir_producto(request):
     data = {
         'form':ProductoForm()

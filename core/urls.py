@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import home, inscripcion, productos, quienessomos, Lista_Producto, aniadir_producto, \
-modificar_producto, eliminar_producto, c
+modificar_producto, eliminar_producto, registro
 
 urlpatterns = [
     path('', home,name="home"),
