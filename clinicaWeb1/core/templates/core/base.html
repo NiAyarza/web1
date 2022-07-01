@@ -36,30 +36,31 @@
                 <div id="nave" class="nave">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'registro_usuario' %}">Registrarse</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'productos' %}">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'quienessomos' %}">Quienes somos</a>
                         </li>
-                        <li> 
-                            <a href="{% url 'aniadir_producto' %}">Agregar Producto</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'Lista_Producto' %}">Listado de productos</a>
-                        </li>
                         {% if user.is_authenticated %}
                         <li>
-                            <a href="#" >Usuario: {{user.username}}</a>
+                            <a class="nav-link" href="#" >Usuario: {{user.username}}</a>
+                            
+                        </li>
+                        <li> 
+                            <a class="nav-link" href="{% url 'aniadir_producto' %}">Agregar Producto</a>
                         </li>
                         <li>
-                            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                            <a class="nav-link" href="{% url 'Lista_Producto' %}">Listado de productos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
                         </li>
                         {% else %}
                         <li>
-                            <a href="{% url 'login' %}">Iniciar Sesión</a>
+                            <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
                         </li>
                         {% endif %}
                     </ul>
